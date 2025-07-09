@@ -3,6 +3,8 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { SupportModule } from '../support.module';
+import { MatDialog } from '@angular/material/dialog';
+import { AddUserDialogComponent } from '../UserDashboard/add-user-dialog.component';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +21,7 @@ export class LoginComponent {
     password: ''
   };
 
-  constructor(private router: Router, private UserService: UserService) { }
+  constructor(private dialog: MatDialog,private router: Router, private UserService: UserService) { }
 
   onSubmit(form: any) {
     if (form.valid) {
@@ -46,4 +48,13 @@ export class LoginComponent {
 
     }
   }
+
+  openAddUserDialog() {
+      const dialogRef = this.dialog.open(AddUserDialogComponent, {
+        width: '400px'
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+      });
+    }
 }

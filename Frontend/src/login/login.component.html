@@ -50,6 +50,12 @@
           class="btn btn-light w-100 fw-bold"
           [disabled]="!loginForm.form.valid">
           Login
+        </button>&nbsp;
+        <button
+          type="button"
+          (click)="openAddUserDialog()"
+          class="btn btn-light w-100 fw-bold">
+          Register
         </button>
       </div>
     </form>

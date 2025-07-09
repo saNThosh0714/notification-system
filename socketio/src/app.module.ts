@@ -19,6 +19,7 @@ export class AppModule implements NestModule {
     consumer
       .apply(AuthMiddleware)
       .exclude('Users/login') // Public route
+      .exclude('Users') // Public route
       .forRoutes('*');       // All other routes will use the middleware
   }
 }
