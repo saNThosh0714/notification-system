@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>{{pageTitle}}</h2>
+    <h4>{{UserType}} - {{UserName}}</h4>
+    <div>
+        <!-- Notification Bar Starts -->
+        <button mat-icon-button [matMenuTriggerFor]="notificationMenu" matBadge="{{ notifications.length }}"
+            matBadgeColor="warn" matBadgePosition="above after">
+            <mat-icon>notifications</mat-icon>
+        </button>
+
+        <mat-menu #notificationMenu="matMenu">
+            <ng-container *ngIf="notifications.length; else noNotifications">
+                <button mat-menu-item *ngFor="let note of notifications">
+                    <mat-icon color="primary">info</mat-icon>
+                    <span>{{ note.message }}</span>
+                </button>
+            </ng-container>
+
+            <ng-template #noNotifications>
+                <button mat-menu-item disabled>
+                    <mat-icon>done_all</mat-icon>
+                    <span>No new notifications</span>
+                </button>
+            </ng-template>
+        </mat-menu>
+        <!-- Notification Bar Ends -->
+
+        <button mat-icon-button (click)="logout()" matTooltip="LogOut">
+            <mat-icon>logout</mat-icon>
+        </button>
+        <button mat-raised-button color="primary" (click)="openAddDialog()" *ngIf="UserType=='Admin'">
+            <mat-icon>add</mat-icon> Add Project
+        </button>
+        <button mat-raised-button color="primary mx-2" (click)="openAddUserDialog()" *ngIf="UserType=='Admin'">
+            <mat-icon>add</mat-icon> Add User
+        </button>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+.login-bg {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.1); /* Transparent */
+  backdrop-filter: blur(10px);         /* Frosted blur */
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
